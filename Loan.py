@@ -13,9 +13,9 @@ class Loan:
         self.interest_paid = interest_paid
         
     def pay(self, amount):
-        princ_pay = amount - self.montly_interest()
+        princ_pay = amount - self.monthly_interest()
         self.balance -= princ_pay
-        self.interest_paid += self.montly_interest()
+        self.interest_paid += self.monthly_interest()
 
         #in case we over pay the last month
         over_paid = 0
@@ -23,7 +23,7 @@ class Loan:
             over_paid = princ_pay - self.balance
         return over_paid
         
-    def montly_interest(self):
+    def monthly_interest(self):
         return self.balance * self.apr/12
 
     def is_zero(self):
